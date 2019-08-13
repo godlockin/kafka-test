@@ -1,11 +1,13 @@
 package com;
 
 import com.alibaba.fastjson.JSON;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 
 import java.util.*;
 
+@Slf4j
 public class Application {
 
 	public static void main(String[] args) throws Exception {
@@ -32,6 +34,7 @@ public class Application {
 
 			String timestamp = Long.valueOf(System.currentTimeMillis()).toString();
 			producer.send(new ProducerRecord<>("topic-st", timestamp, msg));
+			log.info("Published:{}", msg);
 		}
 		producer.close();
 	}
