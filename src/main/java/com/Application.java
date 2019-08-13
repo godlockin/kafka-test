@@ -16,8 +16,12 @@ public class Application {
 		props.put("bootstrap.servers", "192.168.0.227:9092");
 		props.put("acks", "all");
 		props.put("bath.size", 16382);
-		props.put("linger.ms", 1);
+		props.put("linger.ms", 0);
 		props.put("buffer.memory", 33554432);
+
+		props.put("retries", 0);
+		props.put("max.in.flight.requests.per.connections", 1);
+
 		props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 		props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 		KafkaProducer<String, String> producer = new KafkaProducer<>(props);
