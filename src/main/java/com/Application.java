@@ -35,7 +35,7 @@ public class Application {
 			String msg = JSON.toJSONString(data);
 
 			String timestamp = Long.valueOf(System.currentTimeMillis()).toString();
-			producer.send(new ProducerRecord<>("topic-st", timestamp, msg));
+			producer.send(new ProducerRecord<>("topic-st", 0, timestamp, msg));
 			System.out.println(String.format("Published: [%s] at: [%s]", msg, timestamp));
 		}
 		producer.close();
