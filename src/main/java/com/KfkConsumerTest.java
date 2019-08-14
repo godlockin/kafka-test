@@ -23,7 +23,7 @@ public class KfkConsumerTest {
 		props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
 		KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-		consumer.subscribe(Arrays.asList("0", "1", "2"));
+		consumer.subscribe(Arrays.asList("topic-st"));
 		while (true) {
 			ConsumerRecords<String, String> records = consumer.poll(200);
 			records.forEach(x -> {
