@@ -27,7 +27,10 @@ public class KfkConsumerTest {
 		while (true) {
 			ConsumerRecords<String, String> records = consumer.poll(200);
 			records.forEach(x -> {
-				System.out.println(String.format("[%s] message:[%s] on offset:[%s]", x.key(), JSON.parseObject(x.value()), x.offset()));
+				System.out.println(String.format("[%s] message:[%s] on offset:[%s]"
+						, x.key()
+						, JSON.parseObject(x.value())
+						, x.offset()));
 			});
 		}
 	}
